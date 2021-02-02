@@ -71,18 +71,14 @@ const Transaction = {
 }
 
 const DOM = {
+    transactionContainer: document.querySelector('#data-table tbody'),
 
-    transactionsContainer: document.querySelector('#data-table tbody'),
-    
-    
     addTransaction(transaction, index) {
-        const tr = document.createElement('tr');
+        const tr = document.createElement('tr')
         tr.innerHTML = DOM.innerHTMLTransaction(transaction)
-     
 
-        DOM.transactionsContainer.appendChild(tr)
-
-    }, 
+        DOM.transactionContainer.appendChild(tr)
+    },
     
     innerHTMLTransaction(transaction) {
         const CSSclass = transaction.amount > 0 ? "income": "expense";
@@ -94,7 +90,7 @@ const DOM = {
                 <td class="description">${transaction.description}</td>
                 <td class="${CSSclass}">${amount}</td>
                 <td class="date">${transaction.date}</td>
-                <td>
+                <td class="remove">
                     <img src="./assets/minus.svg" alt="Remover transação">
                 </td>
             
